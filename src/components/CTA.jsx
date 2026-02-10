@@ -11,7 +11,7 @@ const CTA = () => {
             Let's discuss your vision and how Axiominds can help you build a world-class team in India.
           </p>
           <div className="cta-actions">
-            <a href="mailto:hello@axiominds.com" className="btn btn-accent">
+            <a href="https://calendly.com/dharam-tiwari/30min" target="_blank" rel="noopener noreferrer" className="btn btn-accent">
               Let's Talk <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
             </a>
           </div>
