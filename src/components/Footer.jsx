@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -12,6 +13,14 @@ const Footer = () => {
               Strategic talent and capability partner for Global Capability Centers (GCCs).
               Building high-quality engineering, AI, and product teams in India.
             </p>
+            <div className="footer-socials">
+              <a href="https://www.linkedin.com/company/kartavyatech/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={20} />
+              </a>
+              <a href="https://x.com/KartavyaTech" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <Twitter size={20} />
+              </a>
+            </div>
           </div>
 
           <div className="footer-links">
@@ -66,6 +75,22 @@ const Footer = () => {
           color: #94a3b8; /* Slate 400 */
           line-height: 1.6;
           max-width: 300px;
+          margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+          display: flex;
+          gap: 1.25rem;
+        }
+
+        .footer-socials a {
+          color: #94a3b8;
+          transition: color 0.2s, transform 0.2s;
+        }
+
+        .footer-socials a:hover {
+          color: white;
+          transform: translateY(-2px);
         }
 
         .footer-links h4, .footer-contact h4 {
