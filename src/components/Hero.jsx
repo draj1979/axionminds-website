@@ -16,7 +16,7 @@ const Hero = () => {
             <a href="#contact" className="btn btn-primary">
               Partner With Us
             </a>
-            <a href="/why-us" className="btn btn-outline">
+            <a href="#why-us" className="btn btn-outline">
               Why Axiominds
             </a>
           </div>

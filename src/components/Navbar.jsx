@@ -8,10 +8,10 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'What We Do', path: '/services' },
-    { name: 'Why Axiominds', path: '/why-us' },
-    { name: 'How We Work', path: '/process' },
-    { name: 'About Us', path: '/about' },
+    { name: 'What We Do', path: '#services' },
+    { name: 'Why Axiominds', path: '#why-us' },
+    { name: 'How We Work', path: '#process' },
+    { name: 'About Us', path: '#about' },
   ];
 
   return (
@@ -24,9 +24,9 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="desktop-menu">
           {navLinks.map((link) => (
-            <Link key={link.name} to={link.path} className="nav-link">
+            <a key={link.name} href={link.path} className="nav-link">
               {link.name}
-            </Link>
+            </a>
           ))}
           <a href="#contact" className="btn btn-primary">
             Partner With Us
@@ -43,14 +43,14 @@ const Navbar = () => {
           <div className="mobile-menu">
             <div className="mobile-menu-links">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.name}
-                  to={link.path}
+                  href={link.path}
                   className="mobile-nav-link"
                   onClick={toggleMenu}
                 >
                   {link.name} <ChevronRight size={16} />
-                </Link>
+                </a>
               ))}
               <a
                 href="#contact"
