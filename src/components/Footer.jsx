@@ -16,9 +16,9 @@ const Footer = () => {
 
           <div className="footer-links">
             <h4>Company</h4>
-            <Link to="/about">About Us</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/why-us">Why Axiominds</Link>
+            <a href="/#about">About Us</a>
+            <a href="/#services">Services</a>
+            <a href="/#why-us">Why Axiominds</a>
           </div>
 
           <div className="footer-links">

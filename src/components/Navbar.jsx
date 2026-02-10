@@ -8,10 +8,10 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'What We Do', path: '#services' },
-    { name: 'Why Axiominds', path: '#why-us' },
-    { name: 'How We Work', path: '#process' },
-    { name: 'About Us', path: '#about' },
+    { name: 'What We Do', path: '/#services' },
+    { name: 'Why Axiominds', path: '/#why-us' },
+    { name: 'How We Work', path: '/#process' },
+    { name: 'About Us', path: '/#about' },
   ];
 
   return (
@@ -32,7 +32,7 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary">
+          <a href="/#contact" className="btn btn-primary">
             Partner With Us
           </a>
         </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 className="btn btn-primary mobile-cta"
                 onClick={toggleMenu}
               >
