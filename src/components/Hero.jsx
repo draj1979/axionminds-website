@@ -22,21 +22,35 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-image-container">
-          {/* Abstract tech/team visual using CSS shapes or a placeholder for now */}
-          <div className="hero-visual">
-            <div className="visual-circle circle-1"></div>
-            <div className="visual-circle circle-2"></div>
-            <div className="visual-card">
-              <div className="visual-card-header">
-                <div className="dot red"></div>
-                <div className="dot yellow"></div>
-                <div className="dot green"></div>
+          <div className="hero-visual-enhanced">
+            <div className="mesh-gradient"></div>
+            <div className="floating-elements">
+              <div className="float-box glass-1">
+                <div className="data-line w-20"></div>
+                <div className="data-line w-40"></div>
+                <div className="data-circles">
+                  <div className="circle sm accent"></div>
+                  <div className="circle sm primary"></div>
+                </div>
               </div>
-              <div className="visual-card-body">
-                <div className="line line-1"></div>
-                <div className="line line-2"></div>
-                <div className="line line-3"></div>
+              <div className="float-box glass-2">
+                <div className="title-placeholder">GCC STRATEGY</div>
+                <div className="data-grid">
+                  <div className="grid-cell"></div>
+                  <div className="grid-cell"></div>
+                  <div className="grid-cell"></div>
+                  <div className="grid-cell"></div>
+                </div>
               </div>
+              <div className="float-box glass-3">
+                <div className="progress-bar"><div className="progress-fill"></div></div>
+              </div>
+            </div>
+            <div className="connection-lines">
+              <svg width="100%" height="100%" viewBox="0 0 400 400">
+                <path d="M50 100 Q 200 50 350 150" stroke="rgba(2, 132, 199, 0.2)" strokeWidth="2" fill="none" />
+                <path d="M100 300 Q 250 250 300 50" stroke="rgba(15, 23, 42, 0.1)" strokeWidth="1" fill="none" />
+              </svg>
             </div>
           </div>
         </div>
@@ -78,20 +92,149 @@ const Hero = () => {
         }
 
         .hero-image-container {
-          display: none;
           position: relative;
-          height: 400px;
+          height: 500px;
           display: flex;
           justify-content: center;
           align-items: center;
         }
 
-        /* Visual Element Styles */
-        .hero-visual {
+        .hero-visual-enhanced {
           position: relative;
           width: 100%;
           height: 100%;
-          display: none; /* Hidden on mobile */
+          max-width: 500px;
+          display: block;
+        }
+
+        .mesh-gradient {
+          position: absolute;
+          inset: -20px;
+          background: 
+            radial-gradient(at 0% 0%, rgba(2, 132, 199, 0.15) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(15, 23, 42, 0.1) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.1) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, rgba(15, 23, 42, 0.05) 0px, transparent 50%);
+          filter: blur(60px);
+          z-index: 0;
+          animation: meshFlow 20s ease-infinite;
+        }
+
+        @keyframes meshFlow {
+          0%, 100% { transform: scale(1) translate(0, 0); }
+          33% { transform: scale(1.1) translate(20px, -20px); }
+          66% { transform: scale(0.9) translate(-20px, 20px); }
+        }
+
+        .floating-elements {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          height: 100%;
+        }
+
+        .float-box {
+          position: absolute;
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          border-radius: var(--radius-lg);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+          padding: 1.5rem;
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .glass-1 {
+          top: 10%;
+          left: 10%;
+          width: 200px;
+          animation-delay: 0s;
+        }
+
+        .glass-2 {
+          top: 40%;
+          right: 10%;
+          width: 240px;
+          animation-delay: -2s;
+        }
+
+        .glass-3 {
+          bottom: 15%;
+          left: 20%;
+          width: 160px;
+          padding: 1rem;
+          animation-delay: -4s;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0) rotate(0); }
+          50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .data-line {
+          height: 6px;
+          background: #f1f5f9;
+          border-radius: 3px;
+          margin-bottom: 0.75rem;
+        }
+        .w-20 { width: 20%; }
+        .w-40 { width: 40%; }
+        
+        .data-circles {
+          display: flex;
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+        
+        .circle.sm { width: 12px; height: 12px; border-radius: 50%; }
+        .circle.accent { background: var(--color-accent); opacity: 0.6; }
+        .circle.primary { background: var(--color-primary); opacity: 0.4; }
+
+        .title-placeholder {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: var(--color-text-light);
+          margin-bottom: 1rem;
+          letter-spacing: 0.1em;
+        }
+
+        .data-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0.5rem;
+        }
+
+        .grid-cell {
+          height: 30px;
+          background: var(--color-surface);
+          border-radius: 4px;
+        }
+
+        .progress-bar {
+          height: 4px;
+          background: #f1f5f9;
+          border-radius: 2px;
+          overflow: hidden;
+        }
+
+        .progress-fill {
+          height: 100%;
+          width: 70%;
+          background: var(--color-accent);
+          border-radius: 2px;
+        }
+
+        .connection-lines {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          opacity: 0.5;
+        }
+
+        @media (max-width: 1023px) {
+          .hero-image-container {
+            display: none;
+          }
         }
 
         @media (min-width: 1024px) {
@@ -101,63 +244,7 @@ const Hero = () => {
           .hero-title {
             font-size: 3.5rem;
           }
-          .hero-visual {
-            display: block;
-          }
         }
-
-        /* Abstract shapes */
-        .visual-circle {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(40px);
-          opacity: 0.2;
-        }
-        .circle-1 {
-          width: 300px;
-          height: 300px;
-          background: var(--color-accent);
-          top: -20px;
-          right: -20px;
-        }
-        .circle-2 {
-          width: 250px;
-          height: 250px;
-          background: var(--color-primary);
-          bottom: -20px;
-          left: 20px;
-        }
-
-        .visual-card {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
-            height: 200px;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--color-border);
-            padding: 1.5rem;
-            z-index: 10;
-        }
-
-        .visual-card-header {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .red { background: #fee2e2; }
-        .yellow { background: #fef3c7; }
-        .green { background: #dcfce7; }
-
-        .line { height: 8px; background: #f1f5f9; border-radius: 4px; margin-bottom: 0.75rem; }
-        .line-1 { width: 80%; }
-        .line-2 { width: 60%; }
-        .line-3 { width: 90%; }
 
       `}</style>
     </section>

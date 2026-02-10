@@ -18,7 +18,11 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          Axiominds
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="logo-icon">
+            <path d="M16 4L4 28H8L16 12L24 28H28L16 4Z" fill="var(--color-primary)" />
+            <circle cx="16" cy="20" r="4" fill="var(--color-accent)" />
+          </svg>
+          <span className="logo-text">Axiominds</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -84,10 +88,21 @@ const Navbar = () => {
         }
 
         .logo {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
           font-size: 1.5rem;
           font-weight: 800;
           color: var(--color-primary);
           letter-spacing: -0.025em;
+        }
+
+        .logo-icon {
+          flex-shrink: 0;
+        }
+
+        .logo-text {
+          line-height: 1;
         }
 
         .desktop-menu {
