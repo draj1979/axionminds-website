@@ -2,65 +2,65 @@ import React from 'react';
 import { Target, Zap, Globe, Award } from 'lucide-react';
 
 const WhyUs = () => {
-    const features = [
-        {
-            icon: <Globe size={24} />,
-            title: 'India as a Strategic Destination',
-            description: 'Access to a deep talent pool of engineers, AI experts, and product leaders who build valid global IP.',
-        },
-        {
-            icon: <Target size={24} />,
-            title: 'Deep Understanding',
-            description: 'We align candidates not just with skills, but with your product roadmap and company culture.',
-        },
-        {
-            icon: <Award size={24} />,
-            title: 'Quality Over Volume',
-            description: 'We prioritize precision hiring. Every candidate is rigorously vetted for domain expertise and problem-solving.',
-        },
-        {
-            icon: <Zap size={24} />,
-            title: 'Ownership & Execution',
-            description: 'We help you build teams that take ownership of products, reducing the management overhead on your onshore teams.',
-        },
-    ];
+  const features = [
+    {
+      icon: <Globe size={24} />,
+      title: 'India as a Strategic Destination',
+      description: 'Access to a deep talent pool of engineers, AI experts, and product leaders who build valid global IP.',
+    },
+    {
+      icon: <Target size={24} />,
+      title: 'Deep Understanding',
+      description: 'We align candidates not just with skills, but with your product roadmap and company culture.',
+    },
+    {
+      icon: <Award size={24} />,
+      title: 'Quality Over Volume',
+      description: 'We prioritize precision hiring. Every candidate is rigorously vetted for domain expertise and problem-solving.',
+    },
+    {
+      icon: <Zap size={24} />,
+      title: 'Ownership & Execution',
+      description: 'We help you build teams that take ownership of products, reducing the management overhead on your onshore teams.',
+    },
+  ];
 
-    return (
-        <section className="section bg-primary text-white" id="why-us">
-            <div className="container">
-                <div className="split-layout">
-                    <div className="split-content">
-                        <h2 className="section-title text-white">Why India. Why Axionmind.</h2>
-                        <p className="section-subtitle text-slate-300">
-                            Building a GCC is not about cost arbitrage anymore. It's about access to world-class talent and innovation. We bridge the gap between global expectations and on-ground execution.
-                        </p>
-                        <div className="stats-grid">
-                            <div className="stat-item">
-                                <span className="stat-number">20+</span>
-                                <span className="stat-label">Years Leadership</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-number">100%</span>
-                                <span className="stat-label">Product Focus</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="features-list">
-                        {features.map((feature, index) => (
-                            <div key={index} className="feature-item">
-                                <div className="feature-icon">{feature.icon}</div>
-                                <div>
-                                    <h3 className="feature-title">{feature.title}</h3>
-                                    <p className="feature-desc">{feature.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+  return (
+    <section className="section bg-primary text-white" id="why-us">
+      <div className="container">
+        <div className="split-layout">
+          <div className="split-content">
+            <h2 className="section-title text-white">Why India. Why Axiominds.</h2>
+            <p className="section-subtitle text-slate-300">
+              Building a GCC is not about cost arbitrage anymore. It's about access to world-class talent and innovation. We bridge the gap between global expectations and on-ground execution.
+            </p>
+            <div className="stats-grid">
+              <div className="stat-item">
+                <span className="stat-number">20+</span>
+                <span className="stat-label">Years Leadership</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">100%</span>
+                <span className="stat-label">Product Focus</span>
+              </div>
             </div>
+          </div>
 
-            <style>{`
+          <div className="features-list">
+            {features.map((feature, index) => (
+              <div key={index} className="feature-item">
+                <div className="feature-icon">{feature.icon}</div>
+                <div>
+                  <h3 className="feature-title">{feature.title}</h3>
+                  <p className="feature-desc">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
         .bg-primary {
           background-color: var(--color-primary);
         }
@@ -137,8 +137,8 @@ const WhyUs = () => {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default WhyUs;

@@ -2,47 +2,47 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
-    return (
-        <section className="hero">
-            <div className="container hero-container">
-                <div className="hero-content">
-                    <h1 className="hero-title">
-                        Build Your <span className="text-accent">Global Capability Center</span> with India's Best Talent
-                    </h1>
-                    <p className="hero-subtitle">
-                        Axionmind is your strategic partner for hiring, scaling, and operating high-quality engineering, AI, and product teams. We move beyond transactional staffing to build long-term capabilities.
-                    </p>
-                    <div className="hero-actions">
-                        <a href="#contact" className="btn btn-primary">
-                            Partner With Us
-                        </a>
-                        <a href="/why-us" className="btn btn-outline">
-                            Why Axionmind
-                        </a>
-                    </div>
-                </div>
-                <div className="hero-image-container">
-                    {/* Abstract tech/team visual using CSS shapes or a placeholder for now */}
-                    <div className="hero-visual">
-                        <div className="visual-circle circle-1"></div>
-                        <div className="visual-circle circle-2"></div>
-                        <div className="visual-card">
-                            <div className="visual-card-header">
-                                <div className="dot red"></div>
-                                <div className="dot yellow"></div>
-                                <div className="dot green"></div>
-                            </div>
-                            <div className="visual-card-body">
-                                <div className="line line-1"></div>
-                                <div className="line line-2"></div>
-                                <div className="line line-3"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <section className="hero">
+      <div className="container hero-container">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Build Your <span className="text-accent">Global Capability Center</span> with India's Best Talent
+          </h1>
+          <p className="hero-subtitle">
+            Axiominds is your strategic partner for hiring, scaling, and operating high-quality engineering, AI, and product teams. We move beyond transactional staffing to build long-term capabilities.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn btn-primary">
+              Partner With Us
+            </a>
+            <a href="/why-us" className="btn btn-outline">
+              Why Axiominds
+            </a>
+          </div>
+        </div>
+        <div className="hero-image-container">
+          {/* Abstract tech/team visual using CSS shapes or a placeholder for now */}
+          <div className="hero-visual">
+            <div className="visual-circle circle-1"></div>
+            <div className="visual-circle circle-2"></div>
+            <div className="visual-card">
+              <div className="visual-card-header">
+                <div className="dot red"></div>
+                <div className="dot yellow"></div>
+                <div className="dot green"></div>
+              </div>
+              <div className="visual-card-body">
+                <div className="line line-1"></div>
+                <div className="line line-2"></div>
+                <div className="line line-3"></div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <style>{`
+      <style>{`
         .hero {
           padding: 4rem 0 6rem;
           background: linear-gradient(to bottom, #f8fafc, #ffffff);
@@ -160,8 +160,8 @@ const Hero = () => {
         .line-3 { width: 90%; }
 
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Hero;

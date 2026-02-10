@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'What We Do', path: '/services' },
-    { name: 'Why Axionmind', path: '/why-us' },
+    { name: 'Why Axiominds', path: '/why-us' },
     { name: 'How We Work', path: '/process' },
     { name: 'About Us', path: '/about' },
   ];
@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          Axionmind
+          Axiominds
         </Link>
 
         {/* Desktop Menu */}
@@ -43,17 +43,17 @@ const Navbar = () => {
           <div className="mobile-menu">
             <div className="mobile-menu-links">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  to={link.path} 
+                <Link
+                  key={link.name}
+                  to={link.path}
                   className="mobile-nav-link"
                   onClick={toggleMenu}
                 >
                   {link.name} <ChevronRight size={16} />
                 </Link>
               ))}
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="btn btn-primary mobile-cta"
                 onClick={toggleMenu}
               >
