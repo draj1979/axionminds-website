@@ -8,7 +8,10 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-branding">
-            <h3 className="footer-logo">Axiominds</h3>
+            <div className="footer-logo-wrapper">
+              <img src="/logo.svg" alt="Axiominds Logo" className="footer-logo-img" style={{ width: '40px', height: '40px', marginBottom: '1rem' }} />
+              <h3 className="footer-logo">Axiominds</h3>
+            </div>
             <p className="footer-desc">
               Strategic talent and capability partner for Global Capability Centers (GCCs).
               Building high-quality engineering, AI, and product teams in India.

@@ -23,12 +23,11 @@ const About = () => {
 
         {/* Founder Profile */}
         <div className="founder-profile">
-          <div className="founder-image-placeholder">
-            {/* Placeholder for founder image */}
-            <div className="img-box">Founder Image</div>
+          <div className="founder-image-container">
+            <img src="/founder.jpg" alt="Dharam Tiwari - Founder Axiominds" className="founder-img" />
           </div>
           <div className="founder-info">
-            <h3 className="founder-name">The Founder</h3>
+            <h3 className="founder-name">Dharam Tiwari</h3>
             <p className="founder-role">CEO & Founder, Axiominds</p>
 
             <div className="founder-bio">
@@ -76,21 +75,18 @@ const About = () => {
           align-items: center;
         }
 
-        .founder-image-placeholder {
+        .founder-image-container {
           display: flex;
           justify-content: center;
         }
 
-        .img-box {
-          width: 200px;
-          height: 200px;
-          background-color: #cbd5e1;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #64748b;
-          font-weight: 600;
+        .founder-img {
+          width: 240px;
+          height: 240px;
+          object-fit: cover;
+          border-radius: var(--radius-lg);
+          border: 4px solid white;
+          box-shadow: var(--shadow-lg);
         }
 
         .founder-name {

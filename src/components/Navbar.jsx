@@ -18,10 +18,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="logo-icon">
-            <path d="M16 4L4 28H8L16 12L24 28H28L16 4Z" fill="var(--color-primary)" />
-            <circle cx="16" cy="20" r="4" fill="var(--color-accent)" />
-          </svg>
+          <img src="/logo.svg" alt="Axiominds Logo" className="logo-icon" style={{ width: '40px', height: '40px' }} />
           <span className="logo-text">Axiominds</span>
         </Link>
 
