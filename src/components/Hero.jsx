@@ -22,34 +22,21 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-image-container">
-          <div className="hero-visual-enhanced">
-            <div className="mesh-gradient"></div>
-            <div className="floating-elements">
-              <div className="float-box glass-1">
-                <div className="data-line w-20"></div>
-                <div className="data-line w-40"></div>
-                <div className="data-circles">
-                  <div className="circle sm accent"></div>
-                  <div className="circle sm primary"></div>
-                </div>
-              </div>
-              <div className="float-box glass-2">
-                <div className="title-placeholder">GCC STRATEGY</div>
-                <div className="data-grid">
-                  <div className="grid-cell"></div>
-                  <div className="grid-cell"></div>
-                  <div className="grid-cell"></div>
-                  <div className="grid-cell"></div>
-                </div>
-              </div>
-              <div className="float-box glass-3">
-                <div className="progress-bar"><div className="progress-fill"></div></div>
-              </div>
+          <div className="globe-visual">
+            <div className="globe-atmosphere"></div>
+            <div className="globe-grid"></div>
+            <div className="globe-dots">
+              {/* Representing key global hubs */}
+              <div className="globe-dot dot-1"></div>
+              <div className="globe-dot dot-2"></div>
+              <div className="globe-dot dot-3"></div>
+              <div className="globe-dot dot-india"></div>
             </div>
-            <div className="connection-lines">
-              <svg width="100%" height="100%" viewBox="0 0 400 400">
-                <path d="M50 100 Q 200 50 350 150" stroke="rgba(2, 132, 199, 0.2)" strokeWidth="2" fill="none" />
-                <path d="M100 300 Q 250 250 300 50" stroke="rgba(15, 23, 42, 0.1)" strokeWidth="1" fill="none" />
+            <div className="globe-lines">
+              <svg viewBox="0 0 500 500" className="connections-svg">
+                <path d="M250 250 Q 350 150 400 200" className="connection-line line-1" />
+                <path d="M250 250 Q 150 150 100 200" className="connection-line line-2" />
+                <path d="M250 250 Q 250 100 250 50" className="connection-line line-3" />
               </svg>
             </div>
           </div>
@@ -61,6 +48,19 @@ const Hero = () => {
           padding: 4rem 0 6rem;
           background: linear-gradient(to bottom, #f8fafc, #ffffff);
           overflow: hidden;
+          position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .hero-container {
@@ -68,6 +68,8 @@ const Hero = () => {
           grid-template-columns: 1fr;
           gap: 4rem;
           align-items: center;
+          position: relative;
+          z-index: 1;
         }
 
         .hero-title {
@@ -97,143 +99,137 @@ const Hero = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        .hero-visual-enhanced {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          max-width: 500px;
-          display: block;
-        }
-
-        .mesh-gradient {
-          position: absolute;
-          inset: -20px;
-          background: 
-            radial-gradient(at 0% 0%, rgba(2, 132, 199, 0.15) 0px, transparent 50%),
-            radial-gradient(at 100% 0%, rgba(15, 23, 42, 0.1) 0px, transparent 50%),
-            radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.1) 0px, transparent 50%),
-            radial-gradient(at 0% 100%, rgba(15, 23, 42, 0.05) 0px, transparent 50%);
-          filter: blur(60px);
-          z-index: 0;
-          animation: meshFlow 20s ease-infinite;
-        }
-
-        @keyframes meshFlow {
-          0%, 100% { transform: scale(1) translate(0, 0); }
-          33% { transform: scale(1.1) translate(20px, -20px); }
-          66% { transform: scale(0.9) translate(-20px, 20px); }
-        }
-
-        .floating-elements {
-          position: relative;
-          z-index: 2;
-          width: 100%;
-          height: 100%;
-        }
-
-        .float-box {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.7);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.5);
-          border-radius: var(--radius-lg);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-          padding: 1.5rem;
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .glass-1 {
-          top: 10%;
-          left: 10%;
-          width: 200px;
-          animation-delay: 0s;
-        }
-
-        .glass-2 {
-          top: 40%;
-          right: 10%;
-          width: 240px;
-          animation-delay: -2s;
-        }
-
-        .glass-3 {
-          bottom: 15%;
-          left: 20%;
-          width: 160px;
-          padding: 1rem;
-          animation-delay: -4s;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-20px) rotate(1deg); }
-        }
-
-        .data-line {
-          height: 6px;
-          background: #f1f5f9;
-          border-radius: 3px;
-          margin-bottom: 0.75rem;
-        }
-        .w-20 { width: 20%; }
-        .w-40 { width: 40%; }
-        
-        .data-circles {
-          display: flex;
-          gap: 0.5rem;
-          margin-top: 1rem;
+          perspective: 1000px;
         }
         
-        .circle.sm { width: 12px; height: 12px; border-radius: 50%; }
-        .circle.accent { background: var(--color-accent); opacity: 0.6; }
-        .circle.primary { background: var(--color-primary); opacity: 0.4; }
-
-        .title-placeholder {
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: var(--color-text-light);
-          margin-bottom: 1rem;
-          letter-spacing: 0.1em;
+        /* Globe Visual Styles */
+        .globe-visual {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #f8fafc, #e2e8f0);
+            box-shadow: 
+                inset 0 0 50px rgba(0,0,0,0.1),
+                0 20px 50px rgba(0,0,0,0.1);
+            animation: floatGlobe 6s ease-in-out infinite;
         }
 
-        .data-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 0.5rem;
+        .globe-atmosphere {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, transparent 70%);
+            z-index: -1;
         }
 
-        .grid-cell {
-          height: 30px;
-          background: var(--color-surface);
-          border-radius: 4px;
+        .globe-grid {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-image: 
+                linear-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+            opacity: 0.5;
+            mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            animation: rotateGrid 20s linear infinite;
         }
 
-        .progress-bar {
-          height: 4px;
-          background: #f1f5f9;
-          border-radius: 2px;
-          overflow: hidden;
+        @keyframes rotateGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 0; }
         }
 
-        .progress-fill {
-          height: 100%;
-          width: 70%;
-          background: var(--color-accent);
-          border-radius: 2px;
+        .globe-dots {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            animation: rotateDots 20s linear infinite;
         }
 
-        .connection-lines {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          opacity: 0.5;
+        .globe-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(15, 23, 42, 0.5);
+            z-index: 2;
+        }
+
+        .dot-1 { top: 30%; left: 30%; } /* Europe approx */
+        .dot-2 { top: 40%; left: 70%; animation-delay: -5s; } /* Asia approx */
+        .dot-3 { top: 60%; left: 20%; animation-delay: -2s; } /* Africa approx */
+        
+        .dot-india {
+            width: 16px; 
+            height: 16px;
+            background: var(--color-accent);
+            top: 45%; 
+            left: 65%;
+            box-shadow: 0 0 15px var(--color-accent);
+            z-index: 3;
+            animation: pulseIndia 2s infinite;
+        }
+
+        @keyframes rotateDots {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); } 
+            /* Simple 2D approximation of 3D rotation */
+        }
+        
+        /* Better 3D simulation for dots requires recreating structure. 
+           Let's stick to a simpler "orbiting" effect for dots or static placement on a rotating background 
+           for stability in CSS-only approach. 
+           Actually, let's make the "grid" move and keep dots static relative to grid? 
+           CSS background animation is 2D. 
+           Let's use a wrapper rotation. 
+        */
+
+        .globe-lines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .connections-svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .connection-line {
+            fill: none;
+            stroke: var(--color-accent);
+            stroke-width: 2;
+            stroke-dasharray: 10;
+            opacity: 0.4;
+            animation: dashLine 2s linear infinite;
+        }
+
+        @keyframes dashLine {
+            to { stroke-dashoffset: -20; }
+        }
+
+        @keyframes pulseIndia {
+            0% { transform: scale(1); box-shadow: 0 0 15px var(--color-accent); }
+            50% { transform: scale(1.2); box-shadow: 0 0 25px var(--color-accent); }
+            100% { transform: scale(1); box-shadow: 0 0 15px var(--color-accent); }
+        }
+
+        @keyframes floatGlobe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         @media (max-width: 1023px) {
           .hero-image-container {
-            display: none;
+             display: none; 
+             /* Or make it smaller/simpler for mobile */
           }
         }
 
@@ -244,8 +240,10 @@ const Hero = () => {
           .hero-title {
             font-size: 3.5rem;
           }
+          .hero-image-container {
+             display: flex;
+          }
         }
-
       `}</style>
     </section>
   );
