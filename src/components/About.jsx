@@ -32,7 +32,7 @@ const About = () => {
 
             <div className="founder-bio">
               <p>
-                With over 20 years of experience in the software and technology industry, our founder brings deep engineering
+                With over 25 years of experience in the software and technology industry, our founder brings deep engineering
                 expertise and a global perspective to talent strategy. An engineering graduate from Mumbai University,
                 he has led large-scale global technology and architecture initiatives for Fortune 500 companies.
               </p>

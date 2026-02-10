@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-branding">
             <div className="footer-logo-wrapper">
-              <img src="/logo.svg" alt="Axiominds Logo" className="footer-logo-img" style={{ width: '40px', height: '40px', marginBottom: '1rem' }} />
+              <img src="/logo.png" alt="Axiominds Logo" className="footer-logo-img" style={{ width: '40px', height: '40px', marginBottom: '1rem', objectFit: 'contain' }} />
               <h3 className="footer-logo">Axiominds</h3>
             </div>
             <p className="footer-desc">

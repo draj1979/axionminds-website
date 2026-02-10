@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="logo">
-          <img src="/logo.svg" alt="Axiominds Logo" className="logo-icon" style={{ width: '40px', height: '40px' }} />
+          <img src="/logo.png" alt="Axiominds Logo" className="logo-icon" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
           <span className="logo-text">Axiominds</span>
         </Link>
 
