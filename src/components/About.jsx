@@ -85,13 +85,13 @@ const About = () => {
           height: 240px;
           object-fit: cover;
           border-radius: var(--radius-lg);
-          border: 4px solid white;
+          border: 4px solid var(--color-card);
           box-shadow: var(--shadow-lg);
         }
 
         .founder-name {
           font-size: 1.75rem;
-          color: var(--color-primary);
+          color: var(--color-heading);
           margin-bottom: 0.25rem;
         }
 

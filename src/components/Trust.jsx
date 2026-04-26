@@ -59,9 +59,9 @@ const Trust = () => {
         .trust-icon {
             display: inline-flex;
             padding: 1rem;
-            background: white;
+            background: var(--color-card);
             border-radius: 50%;
-            color: var(--color-primary);
+            color: var(--color-accent);
             margin-bottom: 1rem;
             box-shadow: var(--shadow-sm);
         }
@@ -69,7 +69,7 @@ const Trust = () => {
         .trust-title {
             font-size: 1.125rem;
             margin-bottom: 0.5rem;
-            color: var(--color-primary);
+            color: var(--color-heading);
         }
 
         .trust-desc {

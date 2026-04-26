@@ -46,7 +46,7 @@ const Hero = () => {
       <style>{`
         .hero {
           padding: 4rem 0 6rem;
-          background: linear-gradient(to bottom, #f8fafc, #ffffff);
+          background: linear-gradient(to bottom, var(--color-surface), var(--color-background));
           overflow: hidden;
           position: relative;
         }
@@ -108,8 +108,8 @@ const Hero = () => {
             height: 400px;
             position: relative;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #f8fafc, #e2e8f0);
-            box-shadow: 
+            background: radial-gradient(circle at 30% 30%, var(--color-surface), var(--color-border));
+            box-shadow:
                 inset 0 0 50px rgba(0,0,0,0.1),
                 0 20px 50px rgba(0,0,0,0.1);
             animation: floatGlobe 6s ease-in-out infinite;
@@ -154,9 +154,9 @@ const Hero = () => {
             position: absolute;
             width: 12px;
             height: 12px;
-            background: var(--color-primary);
+            background: var(--color-heading);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(15, 23, 42, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
             z-index: 2;
         }
 

@@ -64,7 +64,7 @@ const Process = () => {
         .step-number {
           font-size: 2.5rem;
           font-weight: 800;
-          color: #e2e8f0; /* Light slate placeholder color */
+          color: var(--color-border);
           margin-bottom: 1rem;
           position: relative;
           z-index: 1;
@@ -78,7 +78,7 @@ const Process = () => {
         .step-content h3 {
           font-size: 1.25rem;
           margin-bottom: 0.75rem;
-          color: var(--color-primary);
+          color: var(--color-heading);
         }
 
         .step-content p {

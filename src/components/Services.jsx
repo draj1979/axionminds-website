@@ -79,11 +79,11 @@ const Services = () => {
         }
 
         .service-card {
-          background: white;
+          background: var(--color-card);
           padding: 2rem;
           border-radius: var(--radius-lg);
           box-shadow: var(--shadow-sm);
-          transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+          transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
           border: 1px solid var(--color-border);
         }
 
@@ -96,7 +96,7 @@ const Services = () => {
         .service-icon {
           color: var(--color-accent);
           margin-bottom: 1.5rem;
-          background: #f0f9ff;
+          background: var(--color-icon-surface);
           width: 64px;
           height: 64px;
           display: flex;
@@ -108,7 +108,7 @@ const Services = () => {
         .service-title {
           font-size: 1.25rem;
           margin-bottom: 1rem;
-          color: var(--color-primary);
+          color: var(--color-heading);
         }
 
         .service-desc {

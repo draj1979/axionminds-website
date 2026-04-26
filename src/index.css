@@ -10,12 +10,21 @@
   --color-background: #ffffff;
   --color-surface: #f8fafc;
   /* Slate 50 */
+  --color-card: #ffffff;
+  --color-icon-surface: #f0f9ff;
   --color-text: #1e293b;
   /* Slate 800 */
   --color-text-light: #64748b;
   /* Slate 500 */
+  --color-heading: #0f172a;
   --color-border: #e2e8f0;
   /* Slate 200 */
+
+  /* Layered surfaces */
+  --color-navbar-bg: rgba(255, 255, 255, 0.95);
+  --color-mobile-menu-bg: #ffffff;
+  --color-fade: #ffffff;
+  /* matches ticker background for edge fades */
 
   /* Typography */
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -43,6 +52,47 @@
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  /* Brand — accent brightened so it pops on dark surfaces (WCAG AA on slate-900) */
+  --color-primary: #020617;
+  /* Slate 950 — keeps CTA/Footer/WhyUs anchored as deepest sections */
+  --color-secondary: #1e293b;
+  --color-accent: #38bdf8;
+  /* Sky 400 */
+  --color-accent-hover: #7dd3fc;
+  /* Sky 300 */
+
+  --color-background: #0f172a;
+  /* Slate 900 — page bg */
+  --color-surface: #1e293b;
+  /* Slate 800 — alt sections */
+  --color-card: #1e293b;
+  --color-icon-surface: #0c4a6e;
+  /* Sky 900 */
+
+  --color-heading: #f1f5f9;
+  /* Slate 100 — high contrast on dark bg */
+  --color-text: #e2e8f0;
+  /* Slate 200 */
+  --color-text-light: #94a3b8;
+  /* Slate 400 — still WCAG AA on slate-900 */
+  --color-border: #334155;
+  /* Slate 700 */
+
+  --color-navbar-bg: rgba(15, 23, 42, 0.85);
+  --color-mobile-menu-bg: #0f172a;
+  --color-fade: #0f172a;
+
+  /* Stronger shadows under dark bg */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.45), 0 2px 4px -2px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+
+  color-scheme: dark;
 }
 
 html {
@@ -62,6 +112,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 a {
@@ -82,7 +133,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-primary);
+  color: var(--color-heading);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -127,6 +178,15 @@ h6 {
   background-color: var(--color-secondary);
 }
 
+[data-theme="dark"] .btn-primary {
+  background-color: var(--color-accent);
+  color: #0f172a;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
 .btn-accent {
   background-color: var(--color-accent);
   color: white;
@@ -134,6 +194,10 @@ h6 {
 
 .btn-accent:hover {
   background-color: var(--color-accent-hover);
+}
+
+[data-theme="dark"] .btn-accent {
+  color: #0f172a;
 }
 
 .btn-outline {

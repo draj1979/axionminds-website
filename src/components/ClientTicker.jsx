@@ -26,7 +26,7 @@ const ClientTicker = () => {
             <style>{`
         .ticker-section {
           padding: 3rem 0;
-          background-color: white;
+          background-color: var(--color-background);
           border-top: 1px solid var(--color-border);
           border-bottom: 1px solid var(--color-border);
           overflow: hidden;
@@ -61,12 +61,12 @@ const ClientTicker = () => {
 
         .ticker-wrap::before {
           left: 0;
-          background: linear-gradient(to right, white, transparent);
+          background: linear-gradient(to right, var(--color-fade), transparent);
         }
 
         .ticker-wrap::after {
           right: 0;
-          background: linear-gradient(to left, white, transparent);
+          background: linear-gradient(to left, var(--color-fade), transparent);
         }
 
         .ticker {
@@ -85,7 +85,7 @@ const ClientTicker = () => {
         }
 
         .ticker-item:hover {
-            color: var(--color-primary);
+            color: var(--color-heading);
         }
 
         @keyframes ticker {

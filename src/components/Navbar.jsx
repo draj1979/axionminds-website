@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,22 +69,26 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <ThemeToggle />
           <Link to="/#contact" className="btn btn-primary">
             Partner With Us
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          ref={toggleBtnRef}
-          className="mobile-menu-btn"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Controls (toggle + hamburger) */}
+        <div className="mobile-controls">
+          <ThemeToggle />
+          <button
+            ref={toggleBtnRef}
+            className="mobile-menu-btn"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {/* Mobile Menu Overlay */}
         {isOpen && (
@@ -116,7 +121,7 @@ const Navbar = () => {
           position: sticky;
           top: 0;
           z-index: 1000;
-          background-color: rgba(255, 255, 255, 0.95);
+          background-color: var(--color-navbar-bg);
           backdrop-filter: blur(8px);
           border-bottom: 1px solid var(--color-border);
           height: 80px;
@@ -136,7 +141,7 @@ const Navbar = () => {
           gap: 0.75rem;
           font-size: 1.5rem;
           font-weight: 800;
-          color: var(--color-primary);
+          color: var(--color-heading);
           letter-spacing: -0.025em;
         }
 
@@ -165,9 +170,19 @@ const Navbar = () => {
           color: var(--color-accent);
         }
 
+        .mobile-controls {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
         .mobile-menu-btn {
-          display: block;
-          color: var(--color-primary);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          color: var(--color-heading);
         }
 
         .mobile-menu {
@@ -175,7 +190,7 @@ const Navbar = () => {
           top: 80px;
           left: 0;
           width: 100%;
-          background-color: white;
+          background-color: var(--color-mobile-menu-bg);
           border-bottom: 1px solid var(--color-border);
           padding: 1rem 0;
           animation: slideDown 0.3s ease-out;
@@ -192,9 +207,9 @@ const Navbar = () => {
           justify-content: space-between;
           align-items: center;
           padding: 1rem 0;
-          border-bottom: 1px solid var(--color-surface);
+          border-bottom: 1px solid var(--color-border);
           font-weight: 500;
-          color: var(--color-primary);
+          color: var(--color-heading);
         }
 
         .mobile-cta {
@@ -211,7 +226,7 @@ const Navbar = () => {
           .desktop-menu {
             display: flex;
           }
-          .mobile-menu-btn {
+          .mobile-controls {
             display: none;
           }
         }
