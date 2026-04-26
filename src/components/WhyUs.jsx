@@ -6,7 +6,7 @@ const WhyUs = () => {
     {
       icon: <Globe size={24} />,
       title: 'India as a Strategic Destination',
-      description: 'Access to a deep talent pool of engineers, AI experts, and product leaders who build valid global IP.',
+      description: 'Access to a deep talent pool of engineers, AI experts, and product leaders who build viable global IP.',
     },
     {
       icon: <Target size={24} />,

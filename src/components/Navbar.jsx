@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+  const toggleBtnRef = useRef(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen((open) => !open);
+  const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
     { name: 'What We Do', path: '/#services' },
@@ -13,6 +16,42 @@ const Navbar = () => {
     { name: 'How We Work', path: '/#process' },
     { name: 'About Us', path: '/#about' },
   ];
+
+  // Body scroll lock + Escape + outside click + resize, only while open.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    const onClickOutside = (e) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target) &&
+        toggleBtnRef.current &&
+        !toggleBtnRef.current.contains(e.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setIsOpen(false);
+    };
+
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClickOutside);
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClickOutside);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [isOpen]);
 
   return (
     <nav className="navbar">
@@ -25,41 +64,48 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="desktop-menu">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.path} className="nav-link">
+            <Link key={link.name} to={link.path} className="nav-link">
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a href="/#contact" className="btn btn-primary">
+          <Link to="/#contact" className="btn btn-primary">
             Partner With Us
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
+        <button
+          ref={toggleBtnRef}
+          className="mobile-menu-btn"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Menu Overlay */}
         {isOpen && (
-          <div className="mobile-menu">
+          <div className="mobile-menu" id="mobile-menu" ref={mobileMenuRef}>
             <div className="mobile-menu-links">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.path}
+                  to={link.path}
                   className="mobile-nav-link"
-                  onClick={toggleMenu}
+                  onClick={closeMenu}
                 >
                   {link.name} <ChevronRight size={16} />
-                </a>
+                </Link>
               ))}
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="btn btn-primary mobile-cta"
-                onClick={toggleMenu}
+                onClick={closeMenu}
               >
                 Partner With Us
-              </a>
+              </Link>
             </div>
           </div>
         )}

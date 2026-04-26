@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -13,12 +13,12 @@ const Hero = () => {
             Axiominds is your strategic partner for hiring, scaling, and operating high-quality engineering, AI, and product teams. We move beyond transactional staffing to build long-term capabilities.
           </p>
           <div className="hero-actions">
-            <a href="/#contact" className="btn btn-primary">
+            <Link to="/#contact" className="btn btn-primary">
               Partner With Us
-            </a>
-            <a href="/#why-us" className="btn btn-outline">
+            </Link>
+            <Link to="/#why-us" className="btn btn-outline">
               Why Axiominds
-            </a>
+            </Link>
           </div>
         </div>
         <div className="hero-image-container">

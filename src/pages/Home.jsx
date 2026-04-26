@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ClientTicker from '../components/ClientTicker';
@@ -11,11 +11,6 @@ import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 
 const Home = () => {
-    // Scroll to top on mount
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <div className="page-wrapper">
             <Navbar />

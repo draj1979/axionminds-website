@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Users, Lock, Star } from 'lucide-react';
+import { Users, Lock, Star } from 'lucide-react';
 
 const Trust = () => {
     const values = [
