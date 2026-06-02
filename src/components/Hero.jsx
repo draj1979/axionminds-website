@@ -34,9 +34,25 @@ const Hero = () => {
             </div>
             <div className="globe-lines">
               <svg viewBox="0 0 500 500" className="connections-svg">
-                <path d="M250 250 Q 350 150 400 200" className="connection-line line-1" />
-                <path d="M250 250 Q 150 150 100 200" className="connection-line line-2" />
-                <path d="M250 250 Q 250 100 250 50" className="connection-line line-3" />
+                <path id="conn-1" d="M250 250 Q 350 150 400 200" className="connection-line line-1" />
+                <path id="conn-2" d="M250 250 Q 150 150 100 200" className="connection-line line-2" />
+                <path id="conn-3" d="M250 250 Q 250 100 250 50" className="connection-line line-3" />
+
+                <circle className="data-pulse" r="4">
+                  <animateMotion dur="3s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
+                    <mpath href="#conn-1" />
+                  </animateMotion>
+                </circle>
+                <circle className="data-pulse" r="4">
+                  <animateMotion dur="3s" begin="1s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#conn-2" />
+                  </animateMotion>
+                </circle>
+                <circle className="data-pulse" r="4">
+                  <animateMotion dur="3s" begin="2s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#conn-3" />
+                  </animateMotion>
+                </circle>
               </svg>
             </div>
           </div>
@@ -213,6 +229,22 @@ const Hero = () => {
 
         @keyframes dashLine {
             to { stroke-dashoffset: -20; }
+        }
+
+        .data-pulse {
+            fill: var(--color-accent);
+            filter: drop-shadow(0 0 6px var(--color-accent));
+            animation: pulseFade 3s linear infinite;
+        }
+
+        .data-pulse:nth-of-type(2) { animation-delay: 1s; }
+        .data-pulse:nth-of-type(3) { animation-delay: 2s; }
+
+        @keyframes pulseFade {
+            0% { opacity: 0; r: 2; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; r: 6; }
         }
 
         @keyframes pulseIndia {
